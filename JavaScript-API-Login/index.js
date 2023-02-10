@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
 mongoose.set("strictQuery", false);
 
 require("dotenv").config();
