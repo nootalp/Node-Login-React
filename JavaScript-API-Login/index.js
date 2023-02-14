@@ -63,9 +63,9 @@ http.post("/auth/register", async (req, res) => {
   if (!name) {
     return res.status(422).json({ msg: "Must have a name." });
   }
-  if (!email) {
-    return res.status(422).json({ msg: "Must have a email." });
-  }
+  // if (!email) {
+  //   return res.status(422).json({ msg: "Must have a email." });
+  // }
   if (!passwd) {
     return res.status(422).json({ msg: "Must have a password." });
   }
@@ -73,11 +73,11 @@ http.post("/auth/register", async (req, res) => {
     return res.status(422).json({ msg: "Passwords don't match." });
   }
   // Check if user exists;
-  const userExists = await User.findOne({ email: email });
+  // const userExists = await User.findOne({ email: email });
 
-  if (userExists) {
-    return res.status(422).json({ msg: "Please use another email." });
-  }
+  // if (userExists) {
+  //   return res.status(422).json({ msg: "Please use another email." });
+  // }
 
   // Create a strong password with bcrypt;
   const salt = await bcrypt.genSalt(12);
@@ -86,7 +86,7 @@ http.post("/auth/register", async (req, res) => {
   // New instance of User class;
   const user = new User({
     name,
-    email,
+    // email,
     // Hash the password;
     passwd: passwdHash,
   });
@@ -106,16 +106,16 @@ http.post("/auth/register", async (req, res) => {
 });
 
 http.post("/auth/login", async (req, res) => {
-  const { email, passwd } = req.body;
+  const { /*email,*/ passwd } = req.body;
 
-  if (!email) {
-    return res.status(422).json({ msg: "E-mail is obrigatory." });
-  }
+  // if (!email) {
+  //   return res.status(422).json({ msg: "E-mail is obrigatory." });
+  // }
   if (!passwd) {
     return res.status(422).json({ msg: "The password is obrigatory." });
   }
   // Check if user exists;
-  const user = await User.findOne({ email: email });
+  // const user = await User.findOne({ email: email });
 
   if (!user) {
     return res.status(404).json({ msg: "User not found." });
