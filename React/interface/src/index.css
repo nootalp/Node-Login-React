@@ -8,6 +8,11 @@ body {
   font-family: monospace;
 }
 
+p {
+  color: blueviolet;
+  font-size: larger;
+}
+
 form {
   width: 350px;
   padding: 20px;
@@ -17,9 +22,9 @@ form {
 
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  width: 93.5%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin: 5px 0px 15px;
   font-size: 14px;
 }
 
@@ -32,6 +37,13 @@ input[type="submit"] {
   cursor: pointer;
   margin-top: 20px;
 }
-/*
-Globas CSS
-*/ 
+
+label {
+  font-weight: bold;
+}
+
+.sallut-container {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+} 

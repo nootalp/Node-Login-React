@@ -1,4 +1,5 @@
 import { useState } from "react"; // Hook deve ser importado;
+import Sallut from "../Events/Sallut";
 
 function Form() {
   function registerUser(e) {
@@ -10,14 +11,13 @@ function Form() {
 
   return (
     <div>
+      <Sallut name={name} />
       <form onSubmit={registerUser}>
-        <h1>Digite suas credinciais:</h1>
+        <h1>Enter your credentials:</h1>
         <div>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
-            id="name"
-            name="name"
             placeholder="Name"
             onChange={(e) => setName(e.target.value)} // A cada letra digitada, muda o valor do State;
           />
@@ -26,8 +26,6 @@ function Form() {
           <label htmlFor="password">Password:</label>
           <input
             type="password"
-            id="password"
-            name="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
